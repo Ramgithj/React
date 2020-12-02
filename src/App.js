@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Aboutpage from './Week2-Components/DataRequests-Components/FilmRequest/Aboutpage';
+import CreateAccount from './Week2-Components/DataRequests-Components/FilmRequest/CreateAccount';
+import LoginPage from './Week2-Components/DataRequests-Components/FilmRequest/LoginPage';
+import Navbar from './Week2-Components/DataRequests-Components/FilmRequest/Navbar';
+import FilmRequest from './Week2-Components/DataRequests-Components/FilmRequest/FilmRequest';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+return (
+  
+<Router>
+        <Navbar />
+        <Switch>
+          <div>
+            <Route path="/login" exact component={LoginPage}/>
+            <Route path="/about" exact component={Aboutpage}/>
+            <Route path ="/createAccount" component={CreateAccount}/>
+            <Route path ="/finddetails" component={FilmRequest}/>
+
+          </div>
+        </Switch>
+      </Router>    
+    );
 }
 
 export default App;
